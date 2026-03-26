@@ -5,6 +5,7 @@ return {
     config = function()
       require('code_runner').setup {
         filetype = {
+          -- Check the filetype by using `:set filetype?` when in the code you're trying to set up
           javascript = 'node',
           java = {
             'cd $dir && clear &&',
@@ -40,6 +41,7 @@ return {
             'cd $dir && clear &&',
             'lua $fileName',
           },
+          gdscript = 'cd $dir && clear && godot-mono --headless --script $fileName',
         },
         mode = 'toggleterm',
         focus = true,
