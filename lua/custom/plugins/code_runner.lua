@@ -24,7 +24,10 @@ return {
             '-o $fileNameWithoutExt &&',
             '$dir/$fileNameWithoutExt',
           },
-          python = 'python -u',
+          python = {
+            'cd $dir && clear &&',
+            'python $fileName',
+          },
           sh = 'bash',
           ruby = 'ruby',
           rust = {
