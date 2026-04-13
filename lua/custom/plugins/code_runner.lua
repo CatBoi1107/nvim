@@ -45,6 +45,11 @@ return {
             'lua $fileName',
           },
           gdscript = 'cd $dir && clear && godot-mono --headless --script $fileName',
+          typst = {
+            'cd $dir && clear &&',
+            'typst compile $fileName &&',
+            'xdg-open $fileNameWithoutExt.pdf && exit',
+          },
         },
         mode = 'toggleterm',
         focus = true,

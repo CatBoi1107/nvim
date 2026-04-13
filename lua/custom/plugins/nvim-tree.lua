@@ -10,10 +10,10 @@ return {
         api.config.mappings.default_on_attach(bufnr)
 
         -- your overrides
-        vim.keymap.set('n', 'l', api.node.open.edit, opts)
-        vim.keymap.set('n', 'h', api.node.navigate.parent_close, opts)
-        vim.keymap.set('n', 'L', api.tree.change_root_to_node, opts)
-        vim.keymap.set('n', 'H', api.tree.change_root_to_parent, opts)
+        vim.keymap.set('n', 'L', api.node.open.edit, opts)
+        vim.keymap.set('n', 'H', api.node.navigate.parent_close, opts)
+        vim.keymap.set('n', 'l', api.tree.change_root_to_node, opts)
+        vim.keymap.set('n', 'h', api.tree.change_root_to_parent, opts)
       end,
 
       git = {
