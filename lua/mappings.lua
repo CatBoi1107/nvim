@@ -20,6 +20,8 @@ map('n', '<leader>tt', ':Themery<CR>', { desc = 'Switch themes' })
 
 map('n', '<leader>rc', ':RunCode<CR>', { desc = 'Run Current Code' })
 
+
+
 local builtin = require 'telescope.builtin'
 map('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
 map('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
@@ -67,4 +69,14 @@ callback = function(event)
   -- the definition of its *type*, not where it was *defined*.
   vim.keymap.set('n', 'grt', builtin.lsp_type_definitions, { buffer = buf, desc = '[G]oto [T]ype Definition' })
 end,
+})
+
+-- Filetype-based keymapping
+-- Typst:
+vim.api.nvim_create_autocmd({ 'FileType', 'BufEnter' }, {
+  pattern = 'typst',
+  callback = function()
+    vim.keymap.set('n', '<leader>rc', ':TypstPreview<CR>', { desc = 'Show Live Preview', buffer = true })
+    vim.keymap.set('n', '<leader>sf', ':RunCode<CR>', { desc = 'Save as PDF', buffer = true })
+  end,
 })
