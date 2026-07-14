@@ -9,8 +9,8 @@ return {
           { "H", "<cmd>echo 'hello'<cr>", desc = "Say Hello" },
           -- Change an existing keymap
           { "K", "<cmd>echo 'custom hover'<cr>", desc = "Custom Hover" },
-          -- Disable a keymap
-          { "gd", false },
+          -- -- Disable a keymap
+          -- { "gd", false },
         },
       },
     },

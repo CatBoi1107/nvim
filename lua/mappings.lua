@@ -68,15 +68,26 @@ callback = function(event)
   -- Useful when you're not sure what type a variable is and you want to see
   -- the definition of its *type*, not where it was *defined*.
   vim.keymap.set('n', 'grt', builtin.lsp_type_definitions, { buffer = buf, desc = '[G]oto [T]ype Definition' })
+
+
+	vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = buf, desc = 'Goto Definition' })
 end,
 })
 
--- Filetype-based keymapping
+-- Filetype-based keymapping (use :set ft?)
 -- Typst:
 vim.api.nvim_create_autocmd({ 'FileType', 'BufEnter' }, {
   pattern = 'typst',
   callback = function()
     vim.keymap.set('n', '<leader>rc', ':TypstPreview<CR>', { desc = 'Show Live Preview', buffer = true })
     vim.keymap.set('n', '<leader>sf', ':RunCode<CR>', { desc = 'Save as PDF', buffer = true })
+  end,
+})
+
+-- markdown
+vim.api.nvim_create_autocmd({ 'FileType', 'BufEnter' }, {
+  pattern = 'markdown',
+  callback = function()
+    vim.keymap.set('n', '<leader>rc', ':LivePreview start<CR>', { desc = 'Show Live Preview', buffer = true })
   end,
 })
