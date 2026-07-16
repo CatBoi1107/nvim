@@ -1,5 +1,7 @@
 local map = vim.keymap.set
 
+map('n', '<leader>rr', ':restart<CR>', { desc = 'Restart Neovim' })
+
 map('n', ';', ':', { desc = 'CMD enter command mode' })
 map('i', 'jk', '<ESC>')
 

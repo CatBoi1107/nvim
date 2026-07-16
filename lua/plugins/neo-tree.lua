@@ -13,16 +13,16 @@ return {
           hide_gitignored = false,  -- git.ignore = false
           show_on_dirs = true,      -- git.show_on_dirs = true
           show_on_open_dirs = true, -- git.show_on_open_dirs = true
-	  preview = true,
+      preview = true,
         },
       },
       window = {
         mappings = {
-		["L"] = "open",
-		["H"] = "close_node",
-		["l"] = "set_root",
-		["h"] = "navigate_up",
-		[">"] = "toggle_hidden",
+        ["L"] = "open",
+        ["H"] = "close_node",
+        ["l"] = "set_root",
+        ["h"] = "navigate_up",
+        [">"] = "toggle_hidden",
         },
       },
     },
