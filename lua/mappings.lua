@@ -22,8 +22,6 @@ map('n', '<leader>tt', ':Themery<CR>', { desc = 'Switch themes' })
 
 map('n', '<leader>rc', ':RunCode<CR>', { desc = 'Run Current Code' })
 
-
-
 local builtin = require 'telescope.builtin'
 map('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
 map('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
