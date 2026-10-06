@@ -5,6 +5,8 @@ return {
     "williamboman/mason-lspconfig.nvim",
   },
   config = function()
+    require("mason").setup()
+
     local lspconfig = require("lspconfig")
     local mason_lspconfig = require("mason-lspconfig")
 
@@ -15,17 +17,33 @@ return {
       capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
     end
 
-    -- Automatically attach whatever is installed in Mason
     mason_lspconfig.setup({
+      -- Automatically download binaries for servers you use
+      ensure_installed = {
+        "basedpyright",
+        "clangd",
+        "jdtls",
+        "ruff",
+        "sqls",
+        "lua_ls",
+      },
       handlers = {
+        -- Default setup for all installed servers
         function(server_name)
           lspconfig[server_name].setup({
             capabilities = capabilities,
-            -- No on_attach needed here; LspAttach in mappings.lua handles keys!
           })
         end,
 
-        -- Server-specific settings (e.g. telling lua_ls about Neovim's 'vim' global)
+        -- Specific fix for clangd filetypes warning
+        ["clangd"] = function()
+          lspconfig.clangd.setup({
+            capabilities = capabilities,
+            filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
+          })
+        end,
+
+        -- Server-specific settings for Lua
         ["lua_ls"] = function()
           lspconfig.lua_ls.setup({
             capabilities = capabilities,
