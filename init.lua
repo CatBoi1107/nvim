@@ -6,9 +6,15 @@ vim.g.mapleader = " "
 -- Number line and relative number line
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.opt.tabstop = 4
 vim.opt.expandtab = true
 vim.opt.autoindent = true
+
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
+
+vim.opt.linebreak = true
+
 
 require("config.lazy")
 require("mappings")
