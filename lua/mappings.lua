@@ -2,6 +2,7 @@ local map = vim.keymap.set
 
 map('n', '<leader>rr', ':restart<CR>', { desc = 'Restart Neovim' })
 map('n', 'ya', 'gg"+yG', { desc = 'Copy entire file to system clipboard' })
+map('n', 'va', 'ggVG', { desc = 'Highlight entire file' })
 
 map('n', ';', ':', { desc = 'CMD enter command mode' })
 map('i', 'jk', '<ESC>')
